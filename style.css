@@ -1,0 +1,35 @@
+.nav-link:hover {
+  color: rgb(183, 236, 238) !important;
+}
+.logo {
+  mix-blend-mode: lighten;
+}
+
+.list {
+  gap: 1.3cm;
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+}
+.info {
+  padding-left: 80px;
+  position: relative;
+  top: 250px;
+}
+.lorem {
+  text-align: justify;
+}
+H5 {
+  font-family: "Hind Siliguri", sans-serif;
+}
+@media screen and (max-width:991px){
+  .info{
+    position: relative;
+    top: 45px;
+    right: 55px;
+    z-index: 1;
+  }
+  .list{
+    gap: 0.5cm;
+    display: block;
+  }
+} 
