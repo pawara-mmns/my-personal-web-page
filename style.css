@@ -1,6 +1,5 @@
-
 .nav-link:hover {
-  color: rgb(84, 242, 129) !important;
+  color: rgb(106, 190, 255) !important;
 }
 .logo {
   mix-blend-mode: lighten;
@@ -11,12 +10,21 @@
   text-align: center;
   font-family: "Source Code Pro", monospace;
   font-size: 20px;
-  
 }
-.info {
-  padding-left: 80px;
+.back-ground-img {
+  background-image: url(img/back-ground-img.jpg);
+  filter: brightness(0.5);
+  background-size: cover;
+  background-position: center top;
+  height: 92.8vh;
+  background-position-y: center;
+}
+.possition {
   position: relative;
   top: 250px;
+  color: rgb(255, 255, 255);
+  padding: 2cm;
+  font-size: x-large;
 }
 .lorem {
   text-align: justify;
@@ -24,19 +32,19 @@
 H5 {
   font-family: "Hind Siliguri", sans-serif;
 }
-@media screen and (max-width:991px){
-  .info{
+@media screen and (max-width: 991px) {
+  .info {
     position: relative;
     top: 45px;
     right: 55px;
     z-index: 1;
   }
-  .list{
+  .list {
     font-size: x-large;
-    position:absolute;
+    position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgb(41, 49, 49,0.9);
+    background-color: rgb(41, 49, 49, 0.9);
     width: 100%;
     height: calc(100vh - 100%);
     flex-direction: column;
@@ -44,4 +52,4 @@ H5 {
     align-items: center;
     z-index: 2;
   }
-} 
+}
