@@ -1,14 +1,17 @@
+
 .nav-link:hover {
-  color: rgb(183, 236, 238) !important;
+  color: rgb(84, 242, 129) !important;
 }
 .logo {
   mix-blend-mode: lighten;
 }
 
 .list {
-  gap: 1.3cm;
+  gap: 3cm;
   text-align: center;
   font-family: "Source Code Pro", monospace;
+  font-size: 20px;
+  
 }
 .info {
   padding-left: 80px;
@@ -29,7 +32,16 @@ H5 {
     z-index: 1;
   }
   .list{
-    gap: 0.5cm;
-    display: block;
+    font-size: x-large;
+    position:absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(41, 49, 49,0.9);
+    width: 100%;
+    height: calc(100vh - 100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
   }
 } 
