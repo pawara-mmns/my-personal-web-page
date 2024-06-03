@@ -1,5 +1,8 @@
+body{
+  background-color: rgb(0, 0, 0) !important;
+}
 .nav-link:hover {
-  color: rgb(106, 190, 255) !important;
+  color: rgb(245, 245, 245) !important;
 }
 .logo {
   mix-blend-mode: lighten;
@@ -8,19 +11,11 @@
 .list {
   gap: 3cm;
   text-align: center;
-  font-family: "Source Code Pro", monospace;
-  font-size: 20px;
-}
-.back-ground-img {
-  background-image: url(img/back-ground-img.jpg);
-  filter: brightness(0.5);
-  background-size: cover;
-  background-position: center top;
-  height: 92.8vh;
-  background-position-y: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
 }
 .possition {
-  position: relative;
+  position: absolute;
   top: 250px;
   color: rgb(255, 255, 255);
   padding: 2cm;
@@ -28,9 +23,22 @@
 }
 .lorem {
   text-align: justify;
+  font-family: "Gruppo", sans-serif;
+  font-size: medium;
 }
 H5 {
   font-family: "Hind Siliguri", sans-serif;
+}
+h1{
+  font-family: "Archivo Black", sans-serif;
+}
+.pro-img{
+  position: relative;
+  top:150px;
+  left: 250px;
+  
+  
+
 }
 @media screen and (max-width: 991px) {
   .info {
@@ -38,13 +46,15 @@ H5 {
     top: 45px;
     right: 55px;
     z-index: 1;
+    color: azure;
   }
   .list {
     font-size: x-large;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgb(41, 49, 49, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius:50,50,50,50;
     width: 100%;
     height: calc(100vh - 100%);
     flex-direction: column;
@@ -52,4 +62,6 @@ H5 {
     align-items: center;
     z-index: 2;
   }
+  .pro-img{
+    pos
 }
