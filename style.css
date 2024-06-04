@@ -63,7 +63,20 @@ h1{
     align-items: center;
     z-index: 2;
   }
+  .pro-img{
+    display: contents;
+
+  }
+  .possition{
+    padding-top: 2cm;
+    left: 90px;
+  }
+  .wrapper-poss{
+    position:fixed;
+    left: -72.205px;
+  }
 }
+
 /* social media icon */
 .wrapper {
   position:relative;
