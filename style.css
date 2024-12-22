@@ -1,326 +1,104 @@
-body{
-  background-color: rgb(0, 0, 0) !important;
-}
-.nav-link:hover {
-  color: #fec195!important;
-}
-.logo {
-  mix-blend-mode: lighten;
+.gradient-text {
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.list {
-  padding-top: 0.2cm;
-  padding-right: 2cm;
-  gap: 3cm;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-}
-.possition {
-  position: absolute;
-  top: 380px;
-  color: rgb(255, 255, 255);
-  font-size: x-large;
-}
-.lorem {
-  text-align: justify;
-  font-family: "Gruppo", sans-serif;
-  font-size: medium;
-}
-H5 {
-  font-family: "Hind Siliguri", sans-serif;
-}
-h1{
-  font-family: "Archivo Black", sans-serif;
-}
-.pro-img{
-  position: relative;
-  top: 200px;
-  left: 740px;
-  
-  
-
-}
-@media screen and (max-width: 991px) {
-  .info {
-    position: relative;
-    top: 45px;
-    right: 55px;
-    z-index: 1;
-    color: azure;
-  }
-  .list {
-    font-size: x-large;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    border-radius:50,50,50,50;
-    width: 100%;
-    height: calc(100vh - 100%);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-  }
-  .pro-img{
-    display: contents;
-
-  }
-  .possition{
-    padding-top: 2cm;
-    left: 90px;
-  }
-  .wrapper-poss{
-    position:fixed;
-    left: -72.205px;
-  }
+.card-hover {
+  transition: all 0.3s ease;
 }
 
-/* social media icon */
-.wrapper {
-  position:relative;
-  bottom: 50px;
-  right: 220px;
-  display: inline-flex;
-  list-style: none;
-  height: 120px;
-  width: 100%;
-  padding-top: 40px;
-  font-family: "Poppins", sans-serif;
-  justify-content: center;
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
 }
 
-.wrapper .icon {
-  position: relative;
-  background: #060606;
-  border-radius: 50%;
-  margin: 10px;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-.wrapper .tooltip {
-  position: absolute;
-  top: 0;
-  font-size: 14px;
-  background: #fff;
-  color: #fff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Add fade-in animation */
+.fade-in {
   opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: opacity 0.6s ease-in;
 }
 
-.wrapper .tooltip::before {
-  position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #fff;
-  bottom: -3px;
-  left: 50%;
-  transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.wrapper .icon:hover .tooltip {
-  top: -45px;
+.fade-in.visible {
   opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+/* Add this to the existing <style> section */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
-  background: #1877f2;
-  color: #fff;
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff, #cccccc);
+  transition: width 1.5s ease-in-out;
 }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
-  color: #fff;
+.skill-item {
+  margin-bottom: 1rem;
 }
 
-.wrapper .instagram:hover,
-.wrapper .instagram:hover .tooltip,
-.wrapper .instagram:hover .tooltip::before {
-  background: #e4405f;
-  color: #fff;
+/* Update the button hover styles */
+.bg-secondary:hover {
+  background-color: #ffffff;
+  color: #111111 !important; /* Force black text on hover */
 }
 
+.border-secondary:hover {
+  border-color: #ffffff;
+  color: #ffffff !important; /* Force white text on hover */
+}
 
-/* hire me button css */
-.button-design {
+/* Add these styles to the existing <style> section */
+.nav-link {
   position: relative;
-  bottom: 70px;
-  right: 0.2cm;
-  padding: 12px 35px;
-  background: #fec195;
-  font-size: 19px;
-  font-weight: 600;
-  color: #fff;
-  border: 3px solid #fec195;
-  border-radius: 19px;
-  box-shadow: 0 0 0 #fec1958c;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 0.5rem 1rem;
+  perspective: 1000px;
 }
 
-.star-1 {
+.nav-link::before {
+  content: '';
   position: absolute;
-  top: 20%;
-  left: 20%;
-  width: 25px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  left: 0;
+  top: 0;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+  z-index: -1;
+  border-radius: 4px;
+  opacity: 0;
 }
 
-.star-2 {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
 }
 
-.star-3 {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+.nav-link:hover::before {
+  transform: rotateX(0deg);
+  opacity: 1;
 }
-
-.star-4 {
-  position: absolute;
-  top: 20%;
-  left: 40%;
-  width: 8px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-5 {
-  position: absolute;
-  top: 25%;
-  left: 45%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-6 {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.8s ease;
-}
-
-button:hover {
-  background: transparent;
-  color: #fec195;
-  box-shadow: 0 0 25px #fec1958c;
-}
-
-button:hover .star-1 {
-  position: absolute;
-  top: -80%;
-  left: -30%;
-  width: 25px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-2 {
-  position: absolute;
-  top: -40%;
-  left: 16%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-3 {
-  position: absolute;
-  top: 95%;
-  left: 2%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-4 {
-  position: absolute;
-  top: -70%;
-  left: 75%;
-  width: 8px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-5 {
-  position: absolute;
-  top: 35%;
-  left: 115%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-6 {
-  position: absolute;
-  top: 75%;
-  left: 60%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-.fil0 {
-  fill: #fffdef;
-}
-
-
-
-  
