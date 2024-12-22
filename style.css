@@ -61,15 +61,15 @@
 /* Update the button hover styles */
 .bg-secondary:hover {
   background-color: #ffffff;
-  color: #111111 !important; /* Force black text on hover */
+  color: #111111 !important;
 }
 
 .border-secondary:hover {
   border-color: #ffffff;
-  color: #ffffff !important; /* Force white text on hover */
+  color: #ffffff !important; 
 }
 
-/* Add these styles to the existing <style> section */
+
 .nav-link {
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
