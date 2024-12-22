@@ -75,7 +75,7 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-// Responsive setup
+
 function resizeRendererToDisplaySize(renderer) {
   const canvas = renderer.domElement;
   const width = canvas.clientWidth;
@@ -116,19 +116,16 @@ scene.add(particlesMesh);
 
 camera.position.z = 2;
 
-// Animation
+
 function animate() {
   requestAnimationFrame(animate);
 
-  // Calculate target points for smooth movement
   targetX = mouseX * 0.001;
   targetY = mouseY * 0.001;
-
-  // Smoothly rotate the particle system based on mouse position
+  
   particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.05;
   particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.05;
-
-  // Add subtle color shift based on mouse position
+  
   const hue = (mouseX / window.innerWidth) * 0.1;
   const saturation = 0.1;
   const lightness = 0.5 + (mouseY / window.innerHeight) * 0.2;
@@ -145,7 +142,6 @@ function animate() {
 
 animate();
 
-// Handle window resize
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
