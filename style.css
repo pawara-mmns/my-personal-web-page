@@ -59,25 +59,15 @@
 /* button hover */
 .bg-secondary:hover {
   background-color: #ffffff;
-<<<<<<< HEAD
   color: #111111 !important;
-=======
-  color: #111111 !important; 
->>>>>>> 8ad08b1a0a6eded22a3818d8543d4c29b365ad86
 }
 
 .border-secondary:hover {
   border-color: #ffffff;
-<<<<<<< HEAD
   color: #ffffff !important; 
 }
 
 
-=======
-  color: #ffffff !important;
-}
-
->>>>>>> 8ad08b1a0a6eded22a3818d8543d4c29b365ad86
 .nav-link {
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
