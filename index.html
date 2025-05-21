@@ -22,7 +22,7 @@
     ></canvas>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-primary/90 backdrop-blur-sm">
+    <nav class="fixed w-full z-50">
       <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
           <div class="text-2xl font-bold gradient-text">Portfolio</div>
@@ -58,11 +58,7 @@
             <div
               class="w-64 h-64 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-accent floating"
             >
-              <img
-                alt="Profile placeholder - minimalist geometric pattern"
-                class="w-full h-full object-cover"
-                src="res/img/profile-pic.png"
-              />
+              <canvas id="hero-canvas" class="w-64 h-64 mx-auto md:mx-0 rounded-full border-4 border-accent"></canvas>
             </div>
           </div>
           <div class="md:w-1/2 text-center md:text-left">
@@ -312,7 +308,7 @@
         >
           Featured Projects
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project Cards -->
           <div
             class="bg-secondary/10 rounded-2xl overflow-hidden card-hover"
