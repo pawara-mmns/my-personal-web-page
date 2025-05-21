@@ -4,13 +4,26 @@
   -webkit-text-fill-color: transparent;
 }
 
+nav {
+  /* Tailwind classes to remove from HTML: bg-primary/90, backdrop-blur-sm */
+  background-color: rgba(17, 17, 17, 0.85); /* Corresponds to bg-primary with adjusted opacity */
+  backdrop-filter: blur(8px); /* Adjust blur amount if needed */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-grid {
+  perspective: 1500px; /* Enables 3D transformations for children */
+}
+
 .card-hover {
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transform-style: preserve-3d; /* Optional, for potential 3D children */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Subtle base shadow */
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+  transform: translateY(-10px) rotateX(5deg) rotateY(3deg) scale(1.03);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.25); /* Enhanced shadow for depth */
 }
 
 .skill-card {
@@ -58,17 +71,30 @@
   margin-bottom: 1rem;
 }
 
+/* Base button styles for transition */
+.bg-secondary, .border-secondary {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* Update the button hover styles */
 .bg-secondary:hover {
   background-color: #ffffff;
   color: #111111 !important;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .border-secondary:hover {
   border-color: #ffffff;
   color: #ffffff !important; 
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Active state for buttons */
+.bg-secondary:active, .border-secondary:active {
+  transform: translateY(-1px) scale(0.98);
+}
 
 .nav-link {
   position: relative;

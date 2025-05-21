@@ -147,3 +147,78 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Hero Canvas Animation
+const heroCanvas = document.getElementById("hero-canvas");
+const heroRenderer = new THREE.WebGLRenderer({
+  canvas: heroCanvas,
+  alpha: true,
+  antialias: true,
+});
+heroRenderer.setPixelRatio(window.devicePixelRatio);
+heroRenderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+
+const heroScene = new THREE.Scene();
+const heroCamera = new THREE.PerspectiveCamera(
+  75,
+  heroCanvas.clientWidth / heroCanvas.clientHeight,
+  0.1,
+  1000
+);
+heroCamera.position.z = 3.5; // Adjusted camera position
+
+// Add lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
+heroScene.add(ambientLight);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8); // Stronger white light from a direction
+directionalLight.position.set(2, 2, 5); // Position the light
+heroScene.add(directionalLight);
+
+const heroGeometry = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
+const heroMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffffff, // White color
+  metalness: 0.9, // Highly metallic
+  roughness: 0.3, // Moderately smooth sheen
+});
+const torusKnotMesh = new THREE.Mesh(heroGeometry, heroMaterial);
+heroScene.add(torusKnotMesh);
+
+let heroMouseX = 0;
+let heroMouseY = 0;
+
+if (heroCanvas) {
+  heroCanvas.addEventListener('mousemove', (event) => {
+    const rect = heroCanvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    heroMouseX = (x / rect.width) * 2 - 1;
+    heroMouseY = -((y / rect.height) * 2 - 1);
+  });
+
+  heroCanvas.addEventListener('mouseleave', () => {
+    heroMouseX = 0;
+    heroMouseY = 0;
+  });
+}
+
+function animateHero() {
+  requestAnimationFrame(animateHero);
+
+  const targetRotationX = heroMouseY * 0.5;
+  const targetRotationY = heroMouseX * 0.5;
+
+  torusKnotMesh.rotation.x += (targetRotationX - torusKnotMesh.rotation.x) * 0.05 + 0.001;
+  torusKnotMesh.rotation.y += (targetRotationY - torusKnotMesh.rotation.y) * 0.05 + 0.001;
+
+  heroRenderer.render(heroScene, heroCamera);
+}
+
+animateHero();
+
+window.addEventListener("resize", () => {
+  heroCamera.aspect = heroCanvas.clientWidth / heroCanvas.clientHeight;
+  heroCamera.updateProjectionMatrix();
+  heroRenderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+});
