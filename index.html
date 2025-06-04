@@ -599,36 +599,55 @@
             </a>
           </div>
 
-          <form class="space-y-6" data-aos="fade-up" data-aos-duration="1200">
+          <form id="contactForm" class="space-y-6" data-aos="fade-up" data-aos-duration="1200">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 type="text"
+                name="name"
+                id="name"
                 placeholder="Name"
+                required
                 class="w-full p-3 rounded-lg bg-white/10 border border-secondary focus:border-accent outline-none"
               />
               <input
                 type="email"
+                name="email"
+                id="email"
                 placeholder="Email"
+                required
                 class="w-full p-3 rounded-lg bg-white/10 border border-secondary focus:border-accent outline-none"
               />
             </div>
             <input
               type="text"
+              name="subject"
+              id="subject"
               placeholder="Subject"
+              required
               class="w-full p-3 rounded-lg bg-white/10 border border-secondary focus:border-accent outline-none"
             />
             <textarea
+              name="message"
+              id="message"
               placeholder="Message"
               rows="6"
+              required
               class="w-full p-3 rounded-lg bg-white/10 border border-secondary focus:border-accent outline-none"
             ></textarea>
             <button
               type="submit"
+              id="submitBtn"
               class="w-full bg-secondary hover:bg-accent text-white px-8 py-3 rounded-full transition-colors"
             >
-              Send Message
+              <span id="submitText">Send Message</span>
+              <span id="loadingText" class="hidden">Sending...</span>
             </button>
           </form>
+
+          <!-- Success/Error Messages -->
+          <div id="formMessage" class="mt-4 p-4 rounded-lg hidden">
+            <p id="messageText"></p>
+          </div>
         </div>
       </div>
     </section>

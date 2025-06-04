@@ -147,3 +147,78 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// Google Sheets Integration
+// Replace this URL with your Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyk70ZME6jsBnBSESRh5H7P4VigQuM1ry6kvSAgadN4gh4tivyGqU1lPFh7hB5fIxDK6Q/exec';
+
+// Form submission handler
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitText = document.getElementById('submitText');
+  const loadingText = document.getElementById('loadingText');
+  const formMessage = document.getElementById('formMessage');
+  const messageText = document.getElementById('messageText');
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    loadingText.classList.remove('hidden');
+    formMessage.classList.add('hidden');
+
+    // Get form data
+    const formData = new FormData(contactForm);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      // Send data to Google Sheets
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      // Show success message
+      showMessage('Thank you! Your message has been sent successfully.', 'success');
+      contactForm.reset();
+
+    } catch (error) {
+      console.error('Error:', error);
+      showMessage('Sorry, there was an error sending your message. Please try again.', 'error');
+    } finally {
+      // Reset button state
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      loadingText.classList.add('hidden');
+    }
+  });
+
+  function showMessage(message, type) {
+    messageText.textContent = message;
+    formMessage.classList.remove('hidden');
+
+    if (type === 'success') {
+      formMessage.className = 'mt-4 p-4 rounded-lg bg-green-500/20 border border-green-500 text-green-300';
+    } else {
+      formMessage.className = 'mt-4 p-4 rounded-lg bg-red-500/20 border border-red-500 text-red-300';
+    }
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      formMessage.classList.add('hidden');
+    }, 5000);
+  }
+});
